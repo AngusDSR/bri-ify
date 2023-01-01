@@ -26,9 +26,16 @@
     <main class="form-container">
       <textarea name="text-input" id="text-input" cols="10" rows="10"></textarea>
       <div class="buttons-container">
-        <!-- ADD ICONS TO BUTTONS -->
+        <button class="button" id="run">Run</button>
+        <button class="button" id="reset">Reset</button>
         <button class="button" id="speakButton">Say it</button>
-        <!-- Text-to-speech API -->
+        <div class="live-translate-switch">
+          <label class="switch">
+            <input type="checkbox" id="toggle-live" aria-label="toggle">
+            <span class="slider round"></span>
+          </label>
+          <label class="translate-label">Live translate</label>
+        </div>
       </div>
     </main>
   </div>
