@@ -1,4 +1,4 @@
-### 🇬🇧 Bri'ify Translator
+### [Bri'ify Translator](https://angusdsr.github.io/bri-ify/)
 
 <img width="100" alt="image" src="https://user-images.githubusercontent.com/51661234/210871039-8ef5abd2-044b-4f6a-b78f-fdcf958fcf5c.gif">
 
