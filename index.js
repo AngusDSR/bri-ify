@@ -36,7 +36,8 @@ inputField.addEventListener('keyup', (e) => {
     .replace(/food|dinner|lunch|supper|meal/gi, "nosh")
     .replace(/\b[h]/gi, "'")
     .replace(/(?<=[aeiou])t+(?![h'])/gi, "'")
-    .replace(/a '/gi, "an '");
+    .replace(/a '/gi, "an '")
+    .replace(/\?/gi, ", eh?");
     newText[0]
     inputField.value = newText;
   }
