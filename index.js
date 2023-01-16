@@ -7,9 +7,13 @@ let originalText = "";
 
 liveToggle.addEventListener('click', (e) => {
   if (liveToggle.checked) {
-    console.log("on");
+    console.log("on - Live translatin'");
+    // add event listener to the input for key inputs
+    // Toggle .visible class on the 'Run' and 'Reset' buttons
   } else {
-    console.log('off');
+    console.log("Off - Push 'Run' to transla'e");
+    // Remove event listener to the input for key inputs
+    // Toggle .visible class on the 'Run' and 'Reset' buttons
   };
 });
 
@@ -19,6 +23,7 @@ inputField.addEventListener('keyup', (e) => {
     let newText = originalText
     .replace(/isn't|is not|am not|are not|aren't|have not|haven't|hasn't|has not/gi, "ain't")
     .replace(/you(?=[ \.])/gi, "ya")
+    // replace hey (not they, etc.) - start of string, line or sentence - with 'Oi!
     .replace(/th(?!e)/gi, "f")
     .replace(/my/gi, "me")
     .replace(/eaten/, "ate")
