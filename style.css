@@ -96,7 +96,7 @@ textarea {
   padding:4px 8px;
   background-color:#FF3333;
   border:solid 3px #0b085b;
-  border-radius:2px;
+  border-radius:5px;
   font-size:16px;
   font-family:'Fredoka One', cursive;
   cursor:pointer;
@@ -125,7 +125,7 @@ textarea {
   position:absolute;
   cursor:pointer;
   top:0;
-  left:0;
+  left:2px;
   right:0;
   bottom:0;
   background-color:#0b094c;

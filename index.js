@@ -3,25 +3,16 @@ const runButton = document.getElementById('run');
 const resetButton = document.getElementById('reset');
 const speakButton = document.getElementById("speakButton");
 const liveToggle = document.getElementById("toggle-live");
+const liveTranslateLabel = document.getElementById("live-translate");
+
 let originalText = "";
 
-liveToggle.addEventListener('click', (e) => {
-  if (liveToggle.checked) {
-    console.log("on - Live translatin'");
-    // add event listener to the input for key inputs
-    // Toggle .visible class on the 'Run' and 'Reset' buttons
-  } else {
-    console.log("Off - Push 'Run' to transla'e");
-    // Remove event listener to the input for key inputs
-    // Toggle .visible class on the 'Run' and 'Reset' buttons
-  };
-});
-
-inputField.addEventListener('keyup', (e) => {
-  if (e.code == "Space" || e.code == "Enter") {
-    originalText = inputField.value;
+const translate = function(e) {
+  originalText = inputField.value;
+  if (e.code == "Space" || e.code == "Enter" || e.type == "click") {
     let newText = originalText
     .replace(/isn't|is not|am not|are not|aren't|have not|haven't|hasn't|has not/gi, "ain't")
+    .replace(/Hey/, "Oi")
     .replace(/you(?=[ \.])/gi, "ya")
     // replace hey (not they, etc.) - start of string, line or sentence - with 'Oi!
     .replace(/th(?!e)/gi, "f")
@@ -42,10 +33,28 @@ inputField.addEventListener('keyup', (e) => {
     .replace(/\b[h]/gi, "'")
     .replace(/(?<=[aeiou])t+(?![h'])/gi, "'")
     .replace(/a '/gi, "an '")
-    .replace(/\?/gi, ", eh?");
+    .replace(/(?<!eh)\?/gi, ", eh?");
     newText[0]
     inputField.value = newText;
   }
+}
+
+resetButton.addEventListener('click', () => {
+  inputField.value = originalText
+})
+
+runButton.addEventListener('click', translate);
+
+liveToggle.addEventListener('click', (e) => {
+  if (liveToggle.checked) {
+    inputField.addEventListener('keyup', translate);
+    runButton.style.display = 'none';
+    resetButton.style.display = 'none';
+  } else {
+    inputField.removeEventListener('keyup', translate);
+    runButton.style.display = 'flex';
+    resetButton.style.display = 'flex';
+  };
 });
 
 speakButton.addEventListener("click", () => {
