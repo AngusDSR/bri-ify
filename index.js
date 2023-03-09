@@ -41,7 +41,7 @@ const translate = function(e) {
     .replace(/those/gi, "them")
     .replace(/were/gi, "was")
     .replace(/you(?=[ \.])/gi, "ya")
-    .replace(/th(?!e)/gi, "f")
+    .replace(/(?<=\w)th(?=\w)/gi, "f")
     .replace(/my/gi, "me")
     .replace(/\'m not/, " ain't")
     .replace(/have to|have got to|got to/gi, "gotta")
@@ -49,8 +49,7 @@ const translate = function(e) {
     .replace(/(ing)\b/gi, "in'")
     .replace(/\b[h]/gi, "'")
     .replace(/(?<=[aeiou])t+(?![h'])/gi, "'")
-    .replace(/a '/gi, "an '")
-    .replace(/(?<!eh)\?/gi, ", eh?");
+    .replace(/a '/gi, "an '");
     newText[0]
     inputField.value = newText;
   }
@@ -69,8 +68,8 @@ liveToggle.addEventListener('click', (e) => {
     resetButton.style.display = 'none';
   } else {
     inputField.removeEventListener('keyup', translate);
-    runButton.style.display = 'flex';
-    resetButton.style.display = 'flex';
+    runButton.style.display = '';
+    resetButton.style.display = '';
   };
 });
 
