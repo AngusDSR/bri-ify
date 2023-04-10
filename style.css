@@ -117,8 +117,10 @@ textarea {
   flex-direction:row;
   align-items:center;
   justify-content: flex-end;
+  flex-grow: 1;
 }
 .switch {
+  max-width: 100px;
   position:relative;
   display:inline-block;
   width: 100%;
@@ -130,6 +132,7 @@ textarea {
   height:0;
 }
 .slider {
+  max-width: 90px;
   position:absolute;
   cursor:pointer;
   top:0.1px;
@@ -179,11 +182,12 @@ input:checked + .slider:before {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
-/* Add styles for tablets */
+/* tablets */
 @media (min-width:576px) {
-  .container {
+  .card-container {
     max-width:540px;
   }
+
   .buttons-container {
     width:100%;
     margin:0;
@@ -193,18 +197,12 @@ input:checked + .slider:before {
     justify-content:left;
     height:auto;
   }
+
 }
 
-/* Add styles for desktops */
+/* desktops */
 @media (min-width: 768px) {
-  .container {
+  .card-container {
     max-width:720px;
-  }
-}
-
-/* Add styles for large desktops and up */
-@media (min-width: 992px) {
-  .container {
-    max-width:960px;
   }
 }
